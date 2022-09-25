@@ -7,13 +7,14 @@ import {
   Textarea,
   VStack
 } from "@chakra-ui/react";
+import { createOrder } from "../services/OrderService";
 
 export default function OrderForm() {
   const formik = useFormik({
     initialValues: {
     },
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
+      createOrder(values.pml);
     }
   });
   return (
@@ -29,7 +30,7 @@ export default function OrderForm() {
                 placeholder="Input valid Pizza PML Order"
                 variant="filled"
                 onChange={formik.handleChange}
-                value={formik.values.email}
+                value={formik.values.pml}
               />
             </FormControl>
             <Button type="submit" colorScheme='red' width="full" mx="10">

@@ -1,5 +1,5 @@
 const BASE_URL =
-  'http://pizza-env.eba-phdkicep.ap-southeast-1.elasticbeanstalk.com/api/v1';
+  'https://nil-pizza-api.indifferentcat.dev/api/v1';
 export async function getAllOrders() {
   try {
     const response = await fetch(BASE_URL + '/orders');

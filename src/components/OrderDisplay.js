@@ -1,25 +1,25 @@
-import { Box } from '@chakra-ui/react';
+import { Box, Grid, SimpleGrid } from '@chakra-ui/react';
 import { useState, useEffect } from 'react';
 import { getAllOrders } from '../services/OrderService';
+import OrderCard from './OrderCard';
 
 export default function OrdersDisplay() {
   const [orders, setOrders] = useState([]);
 
   const fetchAllOrders = () => {
     getAllOrders.then(orders => {
-      console.log(orders);
       setOrders(orders);
     });
   };
   useEffect(() => {
     getAllOrders().then(orders => {
-      console.log(orders);
       setOrders(orders);
     });
 
-    console.log(orders);
   }, []);
-  return <Box p={6} outline='solid' rounded="md" width="md">
-    {JSON.stringify(orders)}
-  </Box>;
+  return <SimpleGrid  columns={3} spacing={'10px'} outline='solid' rounded="md" width="5xl">
+    {orders.map((order) => {
+      return (<OrderCard orderNumber={order.orderNumber} pizzas={order.pizzas}></OrderCard>);
+    })}
+  </SimpleGrid>;
 }
