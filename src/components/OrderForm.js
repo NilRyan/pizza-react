@@ -18,7 +18,7 @@ export default function OrderForm() {
     }
   });
   return (
-      <Box p={6} rounded="md" width="md">
+      <Box p={6} rounded="md" width={['l', '5xl']}>
         <form onSubmit={formik.handleSubmit}>
           <VStack height={'md'} spacing={4} align="flex-start">
             <FormControl>
