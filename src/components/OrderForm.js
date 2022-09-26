@@ -11,13 +11,13 @@ import {
 import { createOrder } from '../services/OrderService';
 import { useState } from 'react';
 
-export default function OrderForm() {
+export default function OrderForm({fetchAllOrders}) {
   const [error, setError] = useState('');
   const [orderNumber, setOrderNumber] = useState('');
 
   const formik = useFormik({
     initialValues: {},
-    onSubmit: async (values, {resetForm, setFieldValues}) => {
+    onSubmit: async (values, {setFieldValues}) => {
       setError('');
       setOrderNumber('');
       const { message, orderNumber } = await createOrder(values.pml);
@@ -28,7 +28,8 @@ export default function OrderForm() {
       if (orderNumber) {
         setOrderNumber(orderNumber);
       }
-
+      console.log(fetchAllOrders);
+    await fetchAllOrders();
     setFieldValues('pml', '');
     },
   });

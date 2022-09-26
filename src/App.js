@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   ChakraProvider,
   Box,
@@ -13,8 +13,22 @@ import {
 } from '@chakra-ui/react';
 import OrderForm from './components/OrderForm';
 import OrdersDisplay from './components/OrderDisplay';
+import { getAllOrders } from './services/OrderService';
 
 function App() {
+  const [orders, setOrders] = useState([]);
+
+  const fetchAllOrders = () => {
+    getAllOrders().then(orders => {
+      setOrders(orders);
+    });
+  };
+
+  useEffect(() => {
+    getAllOrders().then(orders => {
+      setOrders(orders);
+    });
+  }, []);
   return (
     <ChakraProvider theme={theme}>
       <Box textAlign="center" fontSize="xl">
@@ -27,10 +41,10 @@ function App() {
               </TabList>
               <TabPanels>
                 <TabPanel>
-                <OrderForm></OrderForm>
+                  <OrderForm fetchAllOrders={fetchAllOrders}></OrderForm>
                 </TabPanel>
                 <TabPanel>
-                <OrdersDisplay></OrdersDisplay>
+                  <OrdersDisplay orders={orders}></OrdersDisplay>
                 </TabPanel>
               </TabPanels>
             </Tabs>
