@@ -9,7 +9,7 @@ import {
   TabList,
   Tab,
   TabPanels,
-  TabPanel,
+  TabPanel
 } from '@chakra-ui/react';
 import OrderForm from './components/OrderForm';
 import OrdersDisplay from './components/OrderDisplay';
@@ -17,7 +17,6 @@ import { getAllOrders } from './services/OrderService';
 
 function App() {
   const [orders, setOrders] = useState([]);
-
   const fetchAllOrders = () => {
     getAllOrders().then(orders => {
       setOrders(orders);
@@ -44,6 +43,7 @@ function App() {
                   <OrderForm fetchAllOrders={fetchAllOrders}></OrderForm>
                 </TabPanel>
                 <TabPanel>
+               
                   <OrdersDisplay orders={orders}></OrdersDisplay>
                 </TabPanel>
               </TabPanels>
