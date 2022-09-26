@@ -19,7 +19,7 @@ export default function OrdersDisplay() {
   }, []);
   return <SimpleGrid  columns={[1,1,3]} spacing={'10px'} outline='solid' rounded="md" width={['l', '5xl']}>
     {orders.map((order) => {
-      return (<OrderCard orderNumber={order.orderNumber} pizzas={order.pizzas}></OrderCard>);
+      return (<OrderCard key={order.orderNumber} orderNumber={order.orderNumber} pizzas={order.pizzas}></OrderCard>);
     })}
   </SimpleGrid>;
 }

@@ -22,7 +22,7 @@ export default function OrderCard(props) {
         </Text>
         <SimpleGrid columns={1} spacing='5px' width="full">
           {props.pizzas.map((pizza) => (
-            <PizzaCard pizza={pizza}></PizzaCard>
+            <PizzaCard key={`${props.orderNumber}+${pizza.number}`} pizza={pizza}></PizzaCard>
           ))}
         </SimpleGrid>
       </Box>

@@ -4,7 +4,7 @@ export default function ToppingsItem({ topping }) {
   return (
     <Box>
       {
-        topping.items.map((item) => (<Text mx='5px'>{item}</Text>))
+        topping.items.map((item) => (<Text key={`${topping.area}${item}`} mx='5px'>{item}</Text>))
       }
     </Box>
   );
