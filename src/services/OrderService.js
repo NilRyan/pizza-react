@@ -14,7 +14,7 @@ export async function createOrder(data) {
     BASE_URL + '/orders',
     {
       method: 'POST',
-      headers: { 'Content-Type': 'text/html' },
+      headers: { 'Content-Type': 'text/plain' },
       body: data,
     }
   );

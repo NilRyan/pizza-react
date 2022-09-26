@@ -1,4 +1,4 @@
-import { Box, Flex, Text, Stack, Grid, SimpleGrid } from '@chakra-ui/react';
+import { Box, Text, SimpleGrid } from '@chakra-ui/react';
 import PizzaCard from './OrderCard/PizzaCard';
 
 export default function OrderCard(props) {

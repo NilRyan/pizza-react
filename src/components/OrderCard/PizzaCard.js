@@ -10,7 +10,8 @@ export default function PizzaCard({ pizza }) {
       </Text> 
       {
         pizza.toppings.length > 0 && 
-        <Box fontSize={'sm'}>
+        <Box mx={'10px'} fontSize={'sm'}>
+            <Text> Toppings Total: {pizza.toppingsTotal}</Text>
             Toppings Whole:
             <ToppingsItem topping={pizza.toppings[0]}></ToppingsItem>
             Toppings First-Half:
